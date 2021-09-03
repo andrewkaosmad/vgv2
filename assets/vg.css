@@ -1,0 +1,349 @@
+/* ================== Badge Overlay CSS ========================*/
+.vg-badge-overlay {
+  position: absolute;
+  left: 0%;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+  -webkit-transition: width 1s ease, height 1s ease;
+  -moz-transition: width 1s ease, height 1s ease;
+  -o-transition: width 1s ease, height 1s ease;
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+/* ================== Badge CSS ========================*/
+.vg-badge {
+  margin: 0;
+  padding: 0;
+  color: white;
+  padding: 10px 10px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  text-align: center;
+  line-height: normal;
+  text-transform: uppercase;
+  background: #ed1b24;
+}
+
+.vg-badge::before, .vg-badge::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  margin: 0 -1px;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  min-width: 55px;
+}
+
+.vg-badge::before {
+  right: 100%;
+}
+
+.vg-badge::after {
+  left: 100%;
+}
+
+/* ================== Badge Position CSS ========================*/
+.vg-badge-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -ms-transform: translateX(-30%) translateY(0%) rotate(-45deg);
+  -webkit-transform: translateX(-30%) translateY(0%) rotate(-45deg);
+  transform: translateX(-30%) translateY(0%) rotate(-45deg);
+  -ms-transform-origin: top right;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+}
+
+.vg-badge-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -ms-transform: translateX(30%) translateY(0%) rotate(45deg);
+  -webkit-transform: translateX(30%) translateY(0%) rotate(45deg);
+  transform: translateX(30%) translateY(0%) rotate(45deg);
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+
+.vg-badge-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -ms-transform: translateX(-30%) translateY(0%) rotate(45deg);
+  -webkit-transform: translateX(-30%) translateY(0%) rotate(45deg);
+  transform: translateX(-30%) translateY(0%) rotate(45deg);
+  -ms-transform-origin: bottom right;
+  -webkit-transform-origin: bottom right;
+  transform-origin: bottom right;
+}
+
+.vg-badge-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -ms-transform: translateX(30%) translateY(0%) rotate(-45deg);
+  -webkit-transform: translateX(30%) translateY(0%) rotate(-45deg);
+  transform: translateX(30%) translateY(0%) rotate(-45deg);
+  -ms-transform-origin: bottom left;
+  -webkit-transform-origin: bottom left;
+  transform-origin: bottom left;
+}
+
+.vg-badge-top-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.vg-badge-middle-full {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  -ms-transform: translateX(0%) translateY(-50%) rotate(0deg);
+  -webkit-transform: translateX(0%) translateY(-50%) rotate(0deg);
+  transform: translateX(0%) translateY(-50%) rotate(0deg);
+}
+
+.vg-badge-bottom-full {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* ================== Badge color CSS ========================*/
+.vg-badge.red {
+  background: #ed1b24;
+  background-image: linear-gradient(to bottom, #951015, #4a0b0e);
+}
+
+.vg-badge.orange {
+  background: rgb(131,58,180);
+  background-image: linear-gradient(to bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+
+.vg-badge.pink {
+  background: #ee2b8b;
+}
+
+.vg-badge.blue {
+  background: #00adee;
+  background-image: linear-gradient(to bottom, #180e65, #0a0c3c);
+}
+
+.vg-badge.green {
+  background: #b4bd00;
+}
+
+.vg-badge.black {
+  background: rgb(0,0,0);
+  color: #fff;
+  background-image: linear-gradient(to bottom, #222222, #000000);
+}
+
+.vg-badge.purple {
+  background: #671669;
+  color: #fff;
+  background-image: linear-gradient(to bottom, #671669, #3d0d3e);
+}
+
+/* Product Card Mods */
+
+.card-wrapper {
+background-color: #cbd0f5;
+border-radius: 5px;
+border-width: 2px;
+border-color: #EDCAED;
+height:100%;
+}
+
+.card-information__wrapper-price {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+/* end badge overlays */
+
+/* hr styling */
+
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+/* end fo hr styles */
+
+/* vg tab accordion */
+
+/* Accordion styles */
+
+.vg-tabs input {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+.vg-tabs {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+.vg-tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+.vg-tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: #2c3e50;
+  font-weight: bold;
+  cursor: pointer;
+  /* Icon */
+}
+.vg-tab-label:hover {
+  background: #1a252f;
+}
+.vg-tab-label::after {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
+}
+.vg-tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: #2c3e50;
+  background: white;
+  transition: all 0.35s;
+
+/* flex bit for tab content */
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+align-items: stretch;
+align-content: start;
+width: 95%;
+}
+.vg-tab-close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: #2c3e50;
+  cursor: pointer;
+}
+.vg-tab-close:hover {
+  background: #1a252f;
+}
+.vg-tab input:checked + .vg-tab-label {
+  background: #1a252f;
+}
+.vg-tab input:checked + .vg-tab-label::after {
+  transform: rotate(90deg);
+}
+.vg-tab input:checked ~ .vg-tab-content {
+  max-height: 100vh;
+  padding: 1em;
+}
+
+/* end of vg tab accordion*/
+
+.vg-inst-cutimg {
+  flex: 0 1 300px;
+  margin: auto;
+  max-width: 300px;
+  width: 300px;
+}
+
+.vg-inst-cutimg img{
+  max-width:300px;
+}
+
+.vg-inst-cutset{
+  flex: 1 0 auto;
+  margin: auto;
+  padding: 10px;
+}
+
+.vg-inst-appimg {
+  flex: 0 1 300px;
+  margin: auto;
+  max-width: 300px;
+  width: 300px;
+}
+
+.vg-inst-appimg img{
+  max-width:300px;
+}
+
+.vg-inst-appset{
+  flex: 1 1 auto;
+  margin: auto;
+  padding: 10px;
+}
+
+.vg-inst-content {
+  padding: 0 1em;
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+align-content: space-between;
+width: 100%;
+}
+
+.vg-inst-info{
+  flex: 0 0 300px;
+  margin: auto;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 749px) {
+  .vg-inst-info {
+  margin: 10px 0;
+  flex: 1 0 100%;
+  }
+}
+  @media screen and (min-width: 750px) {
+    .vg-inst-info {
+    margin: 0 10px;
+    }
+}
+/*
+.product__media-wrapper{
+width: 100%;
+text-align: center;
+padding: 2rem 2rem 2rem 2rem;
+background-color: #cbd0f5;
+border-radius: 5px;
+border-width: 2px;
+border-color: #EDCAED;
+}*/

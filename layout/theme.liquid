@@ -26,10 +26,41 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    {{ content_for_header }}
 
     <link rel="stylesheet" href="{{ 'base.css' | asset_url }}" media="all" type="text/css">
     <noscript>{{ 'base.css' | asset_url | stylesheet_tag }}</noscript>
+
+    {{ content_for_header }}
+
+
+    {%- liquid
+       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+     %}
+
+     {% style %}
+       {{ settings.type_body_font | font_face: font_display: 'swap' }}
+       {{ body_font_bold | font_face: font_display: 'swap' }}
+       {{ body_font_italic | font_face: font_display: 'swap' }}
+       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+       {{ settings.type_header_font | font_face: font_display: 'swap' }}
+
+       :root {
+         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+         --font-body-style: {{ settings.type_body_font.style }};
+         --font-body-weight: {{ settings.type_body_font.weight }};
+
+         --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+         --font-heading-style: {{ settings.type_header_font.style }};
+         --font-heading-weight: {{ settings.type_header_font.weight }};
+
+         --page-width: {{ settings.page_width | divided_by: 10 }}rem;
+       }
+
+     {% endstyle %}
+
+
 
 
     {%- if settings.predictive_search_enabled -%}
@@ -39,18 +70,23 @@
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   </head>
 
-  <body class="gradient">
+  <body >
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
+    <div class="app">
     {% section 'announcement-bar' %}
     {% section 'header' %}
-
+    <div class="vgwrapper">
+      <div class="main-container">
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+            <div class="vgcontent-wrapper">
       {{ content_for_layout }}
+    </div>
     </main>
-
+  </div>
+  </div>
     {% section 'footer' %}
 
     <ul hidden>
@@ -81,6 +117,7 @@
       }
     </script>
 
+  </div>
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}

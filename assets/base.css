@@ -1,33 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 /* Color custom properties */
+* {
+  outline: none;
+  box-sizing: border-box;
+}
 
 :root {
   --font-body-family: 'Open Sans', sans-serif;
-  --font-body-style: ;
+  --font-body-style:  ;
   --font-body-weight: 400;
 
   --font-heading-family: 'Open Sans', sans-serif;
-  --font-heading-style: ;
+  --font-heading-style:;
   --font-heading-weight: 700;
 
-  --color-base-text: #3d3a4f;
-  --color-foreground: #3d3a4f;
-  --color-background: #d3dae3;
-  --color-base-background-1: #d3dae3;
-  --color-base-background-2: #daccdb;
-  --color-base-solid-button-labels: #daccdb;
-  --color-base-outline-button-labels: #2f1b6e;
-  --color-base-accent-1: #3c1f4d;
-  --color-base-accent-2: #2f1b6e;
-  --payment-terms-background-color: #d3dae3;
+  --color-base-text: 61,58,79;
+  --color-foreground: 61,58,79;
+  --color-background: 211,218,227;
+  --color-base-background-1: 211,218,227;
+  --color-base-background-2: 218,204,219;
+  --color-base-solid-button-labels: 218,204,219;
+  --color-base-outline-button-labels: 47,27,110;
+  --color-base-accent-1: 60,31,77;
+  --color-base-accent-2: 47,27,110;
+  --payment-terms-background-color: 211,218,227;
 
   --gradient-base-background-1: ;
   --gradient-base-background-2: ;
   --gradient-base-accent-1: ;
   --gradient-base-accent-2: ;
 
-/*  --page-width: 1200;*/
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --theme-color: #f9fafb;
+  --inactive-color: rgb(113 119 144 / 78%);
+  --body-font: "Poppins", sans-serif;
+  --hover-menu-bg: rgba(12 15 25 / 30%);
+  --content-title-color: #999ba5;
+  --content-bg: rgb(146 151 179 / 13%);
+  --button-inactive: rgb(249 250 251 / 55%);
+  --dropdown-bg: #21242d;
+  --dropdown-hover: rgb(42 46 60);
+  --popup-bg: rgb(22 25 37);
+  --search-bg: #14162b;
+  --overlay-bg: rgba(36, 39, 59, 0.3);
+  --scrollbar-bg: rgb(1 2 3 / 40%);
+
 }
+
 
 :root,
 .color-background-1 {
@@ -177,6 +197,118 @@
 .color-icon-outline-button {
   --color-icon: rgb(var(--color-base-outline-button-labels));
 }
+
+/* vg base */
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body-family);
+  background-image: url('background1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ padding: 20px;
+  width: 100%;
+  min-height: 100%;
+  overflow:auto;
+}
+@media screen and (max-width: 480px) {
+  body {
+    padding: 0.8em;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.app {
+  background-color: var(--theme-bg-color);
+  max-width: 1200px;
+/*  max-height: 860px;*/
+/*  height: 90vh;*/
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  width: 100%;
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.vgheader {
+  display: grid;
+  align-items: center;
+  flex-shrink: 0;
+/*  height: 58px;*/
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 30px;
+  white-space: nowrap;
+}
+@media screen and (max-width: 480px) {
+  .vgheader {
+    padding: 0 16px;
+  }
+}
+
+.vgwrapper {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+
+.vgcontent-wrapper {
+  display: flex;
+  flex-direction: column;
+  color: var(--theme-color);
+  padding: 20px 40px;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--theme-bg-color);
+}
+@media screen and (max-width: 510px) {
+  .vgcontent-wrapper {
+    padding: 20px;
+  }
+}
+
+
+.vgheader-menu {
+  display: flex;
+  align-items: center;
+}
+.vgheader-menu a {
+  padding: 20px 30px;
+  text-decoration: none;
+  color: var(--inactive-color);
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+@media screen and (max-width: 610px) {
+  .vgheader-menu a:not(.main-vgheader-link) {
+    display: none;
+  }
+}
+.vgheader-menu a.is-active, .vgheader-menu a:hover {
+  color: var(--theme-color);
+  border-bottom: 2px solid var(--theme-color);
+}
+
+
+
+
 
 /* base */
 
