@@ -1,2 +1,13 @@
 MatchingTranslations:
   enabled: false
+
+
+# Disable a check
+TemplateLength:
+  enabled: false
+  severity: suggestion
+  ignore:
+  - templates/index.liquid
+  - sections/main-collection-product-grid.liquid
+  # Configure options for a check
+  max_length: 500
