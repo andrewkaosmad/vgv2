@@ -95,6 +95,43 @@
       {%- endif -%}
     </span>
   </button>
+
+
+  <!-- Badge overlay DIV -->
+  <div class="vg-badge-overlay">
+
+      <!-- Change Badge Position, Color, Text here-->
+      {%- if product.available == false -%}
+      <span class="vg-badge-middle-full vg-badge black">{{ 'products.product.sold_out' | t }}</span>
+      {%- elsif product.compare_at_price > product.price and product.available -%}
+      <span class="vg-badge-top-left vg-badge orange">{{ 'products.product.on_sale' | t }}</span>
+      {%- endif -%}
+
+
+      {% assign vg_today_date = 'now' | date: '%s' | minus: 604800 %}
+      {% assign vg_new_date = product.published_at | date: '%s' | plus: 0 %}
+      {% if vg_today_date > vg_new_date %}
+      {% else %}
+        <span class="vg-badge-top-left vg-badge blue">NEW</span>
+      {% endif %}
+
+      {% if product.tags == 'wholesale' %}
+          <span class="vg-badge-top-full vg-badge purple">WHOLESALE</span>
+      {% endif %}
+
+      {% if product.tags == 'limitededition' %}
+          <span class="vg-badge-top-full vg-badge purple">LIMITED EDITION</span>
+      {% endif %}
+
+      {% if product.tags == 'hotproduct' %}
+          <span class="vg-badge-top-left vg-badge red">HOT ITEM</span>
+      {% endif %}
+
+  </div>
+  <!-- end Badge ovelay -->
+
+
+
 </modal-opener>
 
 {%- if media.media_type != 'image' -%}

@@ -92,12 +92,7 @@
                 {{ form | payment_terms }}
               {%- endform -%}
             </div>
-          {%- when 'description' -%}
-            {%- if product.description != blank -%}
-              <div class="product__description rte">
-                {{ product.description }}
-              </div>
-            {%- endif -%}
+
           {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
           {%- when 'collapsible_tab' -%}
@@ -379,6 +374,35 @@
     </modal-dialog>
   {%- endfor -%}
 </section>
+
+<section class="page-width vg-product_info">
+
+  {%- if product.description != blank -%}
+    <div class="product__description rte">
+      <h3>Description</h3>
+      {{ product.description }}
+    </div>
+    <hr class="style-one">
+  {%- endif -%}
+
+<!-- instructions -->
+
+    {% assign vg-inst-code = product.metafields.descriptors.vginstcode | strip %}
+    {%- if vg-inst-code != blank -%}
+      {% for article in blogs['instructions'].articles %}
+         {% if article.tags contains vg-inst-code %}
+          <div class="vg-inst">
+           {{ article.content }}
+          </div>
+          <hr class="style-one">
+         {% endif %}
+      {% endfor %}
+    {%- endif -%}
+
+<!-- end of instructions -->
+
+</section>
+
 
 {% javascript %}
   class ProductModal extends ModalDialog {
